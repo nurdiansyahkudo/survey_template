@@ -47,7 +47,7 @@
                                     <span class="fw-bold text-danger" t-field="survey.time_limit" t-options="{'widget': 'duration', 'unit': 'minute'}"></span>
                                 </p>
                             </div>
-                            <button type="submit" value="start" class="btn btn-lg disabled" style="background-color: #005699;">
+                            <button type="submit" value="start" class="btn btn-lg disabled" style="background-color: #347cac;">
                                 <t t-if="survey.certification">
                                     Start Certification
                                 </t>
