@@ -25,34 +25,11 @@
             </xpath>
         </template>
 
-        <!-- Question (main page content) -->
+        <!-- Form with Questions (main page content) -->
         <template id="survey_fill_form_in_progress_custom" inherit_id="survey.survey_fill_form_in_progress">
-            <t t-if="survey.questions_layout == 'page_per_section'">
-                <h3 t-field='page.title' class="o_survey_title pb16 text-break" />
-                <div t-field='page.description' class="oe_no_empty text-break"/>
-
-                <input type="hidden" name="page_id" t-att-value="page.id" />
-                <t t-foreach='page.question_ids' t-as='question'>
-                    <t t-if="question in answer.predefined_question_ids" t-call="survey.question_container"/>
-                </t>
-
-                <div class="row">
-                    <div class="col-12 text-center mt16">
-                        <t t-set="submit_value" t-value="'finish' if survey_last or answer.is_session_answer else 'next_skipped'
-                            if answer.survey_first_submitted and skipped_questions.page_id and page in skipped_questions.page_id else 'next'"/>
-                        <button type="submit" t-att-value="submit_value" t-attf-class="btn #{'btn-secondary' if survey_last else 'btn-primary'} disabled">
-                            <t t-if="submit_value == 'finish'">Submit</t>
-                            <t t-elif="submit_value == 'next_skipped'">Next Skipped</t>
-                            <t t-else="">Continue</t>
-                        </button>
-                        <button id="next_page" t-attf-class="btn #{'btn-secondary' if survey_last else 'btn-primary'} d-none">Next</button>
-                        <span class="fw-bold text-muted ms-2 d-none d-md-inline" id="enter-tooltip"> or press CTRL+Enter</span>
-                    </div>
-                </div>
-            </t>
-            <!-- <xpath expr="//h2[@t-field='page.title']" position="replace">
+            <xpath expr="//t[@t-if='survey.questions_layout == \'page_per_section\'']//h2[@t-field='page.title']" position="replace">
                 <h1 t-field='page.title' class="o_survey_title pb16 text-break" />
-            </xpath> -->
+            </xpath>
         </template>
 
         <!-- Form Start (start form content) -->
