@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- Header -->
+        <template id="survey_fill_header_custom" inherit_id="survey.survey_fill_header">
+            <!-- Contoh: Tambahkan subtitle di bawah title -->
+            <xpath expr="//div[@class='o_survey_nav pt16 mb-2']" position="replace">
+                <div class="o_survey_nav pt16 mb-2">
+                    <div class="container m-0 p-0">
+                        <div class="row">
+                            <div  class="col-lg-10">
+                                <h3 t-if="answer.state == 'new' or survey.questions_layout != 'page_per_question'"
+                                    t-esc="survey.title" class="o_survey_main_title pt-4"></h3>
+                            </div>
+                            <div class="o_survey_timer col-lg-2 pt-4">
+                                <h3 class="o_survey_timer_container timer text-end">
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-att-class="'o_survey_breadcrumb_container mt8' + (' d-none ' if answer.state != 'in_progress' else '')"
+                        t-if="not survey.has_conditional_questions and survey.questions_layout == 'page_per_section' and answer.state != 'done'"
+                        t-att-data-can-go-back="survey.users_can_go_back"
+                        t-att-data-pages="json.dumps(breadcrumb_pages)" />
+                </div>
+            </xpath>
+        </template>
+
+        <!-- Form (main page content) -->
+
+
+        <!-- Form Start (start form content) -->
+
+
+        <!-- Review Answer/Print -->
+    </data>
+</odoo>>
