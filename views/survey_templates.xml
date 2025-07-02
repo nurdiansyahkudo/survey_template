@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <!-- <data> -->
+    <data>
         <!-- Header -->
         <template id="survey_fill_header_custom" inherit_id="survey.survey_fill_header">
             <!-- Contoh: Tambahkan subtitle di bawah title -->
@@ -33,5 +33,5 @@
 
 
         <!-- Review Answer/Print -->
-    <!-- </data> -->
-</odoo>>
+    </data>
+</odoo>
