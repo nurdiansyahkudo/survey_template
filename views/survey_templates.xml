@@ -27,8 +27,8 @@
 
         <!-- Form with Questions (main page content) -->
         <template id="survey_fill_form_in_progress_custom" inherit_id="survey.survey_fill_form_in_progress">
-            <xpath expr="//t[@t-if='survey.questions_layout == \'page_per_section\'']//h2[@t-field='page.title']" position="replace">
-                <h1 t-field='page.title' class="o_survey_title pb16 text-break" />
+            <xpath expr="//h2[@t-field='page.title' and contains(@class, 'o_survey_title')]" position="replace">
+              <h1 t-field="page.title" class="o_survey_title pb16 text-break "/>
             </xpath>
         </template>
 
