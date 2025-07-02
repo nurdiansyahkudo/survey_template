@@ -23,7 +23,7 @@ This template is customization in Surveys Module for Bank Indonesia
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/templates.xml',
+        'views/survey_templates.xml',
     ],
     'application': False,
     'installable': True,
