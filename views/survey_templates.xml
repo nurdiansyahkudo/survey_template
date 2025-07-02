@@ -28,7 +28,7 @@
         <!-- Question (main page content) -->
         <template id="survey_fill_form_in_progress_custom" inherit_id="survey.survey_fill_form_in_progress">
             <xpath expr="//h2[@t-field='page.title']" position="replace">
-                <h3 t-field='page.title' class="o_survey_title pb16 text-break" />
+                <h1 t-field='page.title' class="o_survey_title pb16 text-break" />
             </xpath>
         </template>
 
