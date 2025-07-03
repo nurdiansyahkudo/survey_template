@@ -77,7 +77,7 @@
             <xpath expr="//input" position="replace">
                 <input t-att-type="'email' if question.validation_email else 'text'"
                       class="form-control o_survey_question_text_box bg-transparent rounded-0 p-0"
-                      style="font-size: 18px;"
+                      style="font-size: 17px;"
                       t-att-name="question.id" t-att-placeholder="question.question_placeholder"
                       t-att-value="answer_lines[0].value_char_box if answer_lines else None"
                       t-att-data-question-type="question.question_type"
@@ -89,7 +89,7 @@
         <!-- Input Text (text box) -->
         <template id="question_text_box_custom" inherit_id="survey.question_text_box">
             <xpath expr="//textarea" position="replace">
-                <textarea class="form-control o_survey_question_text_box bg-transparent rounded-0 p-0" rows="3" style="font-size: 18px;"
+                <textarea class="form-control o_survey_question_text_box bg-transparent rounded-0 p-0" rows="3" style="font-size: 17px;"
                             t-att-name="question.id" t-att-placeholder="question.question_placeholder"
                             t-att-data-question-type="question.question_type"><t t-if="answer_lines" t-esc="answer_lines[0].value_text_box or None"/>
                 </textarea>
@@ -100,7 +100,7 @@
         <template id="question_numerical_box_custom" inherit_id="survey.question_numerical_box">
             <xpath expr="//input" position="replace">
                 <input type="number" step="any" class="form-control o_survey_question_numerical_box bg-transparent rounded-0 p-0"
-                        style="font-size: 18px;"
+                        style="font-size: 17px;"
                         t-att-name="question.id" t-att-placeholder="question.question_placeholder"
                         t-att-value="answer_lines[0].value_numerical_box if answer_lines else None"
                         t-att-data-question-type="question.question_type"
