@@ -108,6 +108,43 @@
                         t-att-data-validation-float-max="question.validation_max_float_value if question.validation_required else False"/>
             </xpath>
         </template>
+        
+        <!-- Button Take Again -->
+        <template id="survey_button_retake_custom" inherit_id="survey.survey_button_retake">
+            <xpath expr="//div[@class='d-print-none']" position="replace">
+                <div t-if="not answer.is_session_answer and not (survey.certification and answer.scoring_success)" class="d-print-none">
+                    <t t-if="survey.is_attempts_limited">
+                        <t t-set="attempts_left" t-value="survey._get_number_of_attempts_lefts(answer.partner_id, answer.email, answer.invite_token)" />
+                        <p t-if="attempts_left > 0">
+                            <span>Number of attempts left</span>: <span t-out="attempts_left"/>
+                            <a role="button" class="btn btn-lg ms-3" style="background-color: #347aca" t-att-href="'/survey/retry/%s/%s' % (survey.access_token, answer.access_token)">
+                                Retry
+                            </a>
+                        </p>
+                    </t>
+                    <p t-else="">
+                        <a role="button" class="btn btn-lg" style="background-color: #347aca" t-att-href="'/survey/retry/%s/%s' % (survey.access_token, answer.access_token)">
+                            Take Again
+                        </a>
+                    </p>
+                </div>
+            </xpath>
+        </template>
+        
+        <!-- Button Take Again -->
+        <template id="survey_fill_form_done_custom" inherit_id="survey.survey_fill_form_done">
+            <xpath expr="//div[@class='d-flex gap-3 mt-3']" position="replace">
+                <div class="d-flex gap-3 mt-3">
+                    <t t-call="survey.survey_button_retake"/>
+                    <p t-if="survey.scoring_type != 'scoring_without_answers'">
+                        <a role="button" class="o_survey_review btn btn-lg" style="background-color: #fff; font-color: #000"
+                           t-att-href="'/survey/print/%s?answer_token=%s&amp;review=True' % (survey.access_token, answer.access_token)">
+                           Review your answers
+                        </a>
+                    </p>
+                </div>
+            </xpath>
+        </template>
 
         <!-- Simple Choice -->
         <!-- <template id="question_simple_choice_custom" inherit_id="survey.question_simple_choice">
