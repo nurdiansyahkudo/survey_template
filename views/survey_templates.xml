@@ -72,7 +72,7 @@
             </xpath>
         </template>
 
-        <!-- Input Text -->
+        <!-- Input Text (char box) -->
         <template id="question_char_box_custom" inherit_id="survey.question_char_box">
             <xpath expr="//input" position="replace">
                 <input t-att-type="'email' if question.validation_email else 'text'"
@@ -85,6 +85,39 @@
                       t-att-data-validation-length-max="question.validation_length_max if question.validation_required else False" />
             </xpath>
         </template>
+        
+        <!-- Input Text (text box) -->
+        <template id="question_text_box_custom" inherit_id="survey.question_text_box">
+            <xpath expr="//textarea" position="replace">
+                <textarea class="form-control o_survey_question_text_box bg-transparent rounded-0 p-0" rows="3" style="font-size: 18px;"
+                            t-att-name="question.id" t-att-placeholder="question.question_placeholder"
+                            t-att-data-question-type="question.question_type"><t t-if="answer_lines" t-esc="answer_lines[0].value_text_box or None"/>
+                </textarea>
+            </xpath>
+        </template>
+        
+        <!-- Numerical Box -->
+        <template id="question_numerical_box_custom" inherit_id="survey.question_numerical_box">
+            <xpath expr="//input" position="replace">
+                <input type="number" step="any" class="form-control o_survey_question_numerical_box bg-transparent rounded-0 p-0"
+                        style="font-size: 18px;"
+                        t-att-name="question.id" t-att-placeholder="question.question_placeholder"
+                        t-att-value="answer_lines[0].value_numerical_box if answer_lines else None"
+                        t-att-data-question-type="question.question_type"
+                        t-att-data-validation-float-min="question.validation_min_float_value if question.validation_required else False"
+                        t-att-data-validation-float-max="question.validation_max_float_value if question.validation_required else False"/>
+            </xpath>
+        </template>
+
+        <!-- Simple Choice -->
+        <!-- <template id="question_simple_choice_custom" inherit_id="survey.question_simple_choice">
+            <xpath expr="//textarea" position="replace">
+                <textarea class="form-control o_survey_question_text_box bg-transparent rounded-0 p-0" rows="3" style="font-size: 18px;"
+                            t-att-name="question.id" t-att-placeholder="question.question_placeholder"
+                            t-att-data-question-type="question.question_type"><t t-if="answer_lines" t-esc="answer_lines[0].value_text_box or None"/>
+                </textarea>
+            </xpath>
+        </template> -->
 
         <!-- Review Answer/Print -->
     </data>
