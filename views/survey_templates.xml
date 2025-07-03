@@ -58,6 +58,19 @@
                 </div>
             </xpath>
         </template>
+        
+        <!-- Questions -->
+        <template id="question_container_custom" inherit_id="survey.question_container">
+            <xpath expr="//div[@class='mb-4']" position="replace">
+                <div class="mb-4">
+                    <h4 t-if="not hide_question_title">
+                        <span t-field='question.title' class="text-break" />
+                        <span t-if="question.constr_mandatory" class="text-danger">*</span>
+                    </h4>
+                    <div t-if="not is_html_empty(question.description)" t-field='question.description' class="text-muted oe_no_empty mt-1 text-break"/>
+                </div>
+            </xpath>
+        </template>
 
         <!-- Input Text -->
         <template id="question_char_box_custom" inherit_id="survey.question_char_box">
