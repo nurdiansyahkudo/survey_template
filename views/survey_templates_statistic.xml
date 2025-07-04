@@ -12,7 +12,7 @@
                         t-att-data-right-answers="list(question_data['answer_line_done_ids'].mapped('value_scale')) if question.question_type in ['scale'] else list(question_data['right_answers'].mapped('value'))">
                         <!-- canvas element for drawing bar chart -->
                         <canvas class="mx-auto w-100 h-auto" style="transform: scale(0.75); transform-origin: top center;"/>
-                        <div t-att-id="'legend-container-%d' % question.id" class="mt-2 chart-legend"></div>
+                        <div t-att-id="'legend-container-%d' % question.id" class="mt-2 chart-legend">TEST</div>
                     </div>
                     <div role="tabpanel" t-att-id="'survey_data_question_%d' % question.id"
                         t-attf-class="tab-pane #{'active' if not question_answered else ''} table-responsive">
