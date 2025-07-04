@@ -24,6 +24,7 @@ This template is customization in Surveys Module for Bank Indonesia
     'data': [
         # 'security/ir.model.access.csv',
         'views/survey_templates.xml',
+        'views/survey_templates_statistic.xml',
     ],
     'application': False,
     'installable': True,

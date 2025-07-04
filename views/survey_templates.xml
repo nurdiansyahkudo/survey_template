@@ -131,7 +131,7 @@
             </xpath>
         </template>
         
-        <!-- Button Take Again -->
+        <!-- Button Review Answer -->
         <template id="survey_fill_form_done_custom" inherit_id="survey.survey_fill_form_done">
             <xpath expr="//div[@class='d-flex gap-3 mt-3']" position="replace">
                 <div class="d-flex gap-3 mt-3">
