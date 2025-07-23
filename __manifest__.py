@@ -26,6 +26,11 @@ This template is customization in Surveys Module for Bank Indonesia
         'views/survey_templates.xml',
         'views/survey_templates_statistic.xml',
     ],
+    'assets': {
+      'web.assets_frontend': [
+        'survey_template/static/src/scss/custom_survey_templates_form.scss',
+      ],
+    },
     'application': False,
     'installable': True,
 }

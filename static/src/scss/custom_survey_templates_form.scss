@@ -1,0 +1,11 @@
+.o_survey_background {
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+.o_survey_choice_btn:has(.o_survey_js_form_other_comment:checked),
+.o_survey_js_form_other_comment:checked + span {
+    background-color: rgba(255, 193, 7, 0.15);
+    border: 1px dashed #ffc107;
+}
